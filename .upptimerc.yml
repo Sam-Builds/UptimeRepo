@@ -64,9 +64,9 @@ status-website:
   theme: dark
 
 # Notification Settings
-notifications:
-  - type: discord
-    serviceUrl: ${{ secrets.DISCORD_WEBHOOK }}
+# notifications:
+#   - type: discord
+#     serviceUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
 # Workflow Schedule (Checks every 5 minutes - Minimum for GitHub Actions)
 workflowSchedule:
