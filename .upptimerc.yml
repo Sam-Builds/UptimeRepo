@@ -53,20 +53,20 @@ status-website:
   logoUrl: https://cdn-icons-png.flaticon.com/512/12814/12814566.png
   name: AvaServer Status
   introTitle: "**AvaServer** // External Watchdog"
-  introMessage: "External monitoring for SamStack Systems. If this page is down, GitHub is down."
+  introMessage: "External monitoring for SamStack Systems. If this page is down, GitHub is down. Call for help..."
   navbar:
     - title: Status
       href: /       
     - title: GitHub
-      href: https://github.com/$OWNER/$REPO 
+      href: https://github.com/$OWNER
 
   # Theme Settings (Cyberpunk-ish)
   theme: dark
 
 # Notification Settings
-# notifications:
-#   - type: discord
-#     serviceUrl: ${{ secrets.DISCORD_WEBHOOK }}
+notifications:
+  - type: discord
+    serviceUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
 # Workflow Schedule (Checks every 5 minutes - Minimum for GitHub Actions)
 workflowSchedule:
