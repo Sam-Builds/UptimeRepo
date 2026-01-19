@@ -64,8 +64,7 @@ status-website:
     - title: Status
       href: /
     - title: GitHub Source
-      href: https://github.com/$OWNER/$REPO
-
+      href: https://github.com/$OWNER
   # Custom Labels (Make it sound cooler)
   i18n:
     activeIncidents: "⚠️ ACTIVE ANOMALIES DETECTED"
