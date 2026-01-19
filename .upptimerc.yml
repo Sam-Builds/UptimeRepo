@@ -56,9 +56,9 @@ status-website:
   introMessage: "External monitoring for SamStack Systems. If this page is down, GitHub is down."
   navbar:
     - title: Status
-      url: /
+      href: /       
     - title: GitHub
-      url: https://github.com/$OWNER/$REPO
+      href: https://github.com/$OWNER/$REPO 
 
   # Theme Settings (Cyberpunk-ish)
   theme: dark
