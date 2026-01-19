@@ -1,36 +1,79 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# Change these to match your GitHub details
+owner: Sam-Builds
+repo: UptimeRepo
+
+user-agent: "AvaServer Monitor"
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Test Broken Site
-    url: https://thissitedoesnotexist.koj.co
-  - name: IPv6 test
-    url: forwardemail.net
-    port: 80
-    check: "tcp-ping"
-    ipv6: true
+  # --- Group: Sites ---
+  - name: Main Portfolio
+    url: https://www.samstack.site
+    icon: 💼
+    
+  - name: Project Adithya (Blood Donation)
+    url: https://projectadithya.samstack.site
+    icon: 🩸
+
+  - name: Bin's Middleman Site (Unfinished)
+    url: https://deals.samstack.site
+    icon: 🚧
+
+  - name: IDT Data Entry
+    url: https://dataentry.samstack.site
+    icon: 📝
+
+  - name: YenApp Purge Account
+    url: https://purgeaccount.samstack.site
+    icon: 🗑️
+
+  - name: Server Center Console
+    url: https://debug.samstack.site
+    icon: 🖥️
+
+  - name: Secret Santa
+    url: https://secretsanta.samstack.site
+    icon: 🎅
+
+  - name: Privacy Policy
+    url: https://www.samstack.site/privacy
+    icon: 🔒
+
+  # --- Group: Endpoints (APIs) ---
+  - name: MAIN API (Test Endpoint)
+    url: https://api.samstack.site/api/test
+    icon: ⚙️
+
+  - name: IDT Blood Donation API (Health)
+    url: https://adithyasapi.samstack.site/api/health
+    icon: 🏥
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  # General Settings
+  cname: status.samstack.site
+  logoUrl: https://cdn-icons-png.flaticon.com/512/12814/12814566.png
+  name: AvaServer Status
+  introTitle: "**AvaServer** // External Watchdog"
+  introMessage: "External monitoring for SamStack Systems. If this page is down, GitHub is down."
   navbar:
     - title: Status
-      href: /
+      url: /
     - title: GitHub
-      href: https://github.com/$OWNER/$REPO
+      url: https://github.com/$OWNER/$REPO
 
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+  # Theme Settings (Cyberpunk-ish)
+  theme: dark
+
+# Notification Settings
+notifications:
+  - type: discord
+    serviceUrl: ${{ secrets.DISCORD_WEBHOOK }}
+
+# Workflow Schedule (Checks every 5 minutes - Minimum for GitHub Actions)
+workflowSchedule:
+  graphs: "0 0 * * *"
+  responseTime: "0 23 * * *"
+  staticSite: "0 1 * * *"
+  summary: "0 0 * * *"
+  updateTemplate: "0 0 * * *"
+  updates: "*/5 * * * *"
+  uptime: "*/5 * * * *"
