@@ -129,7 +129,7 @@ status-website:
   customHeadHtml: |
     <script>
       // 1. Define your Live Kuma URL
-      const LIVE_SERVER = "https://livestatus.samstack.site";
+      const LIVE_SERVER = "https://livestatus.samstack.site/status/status";
 
       // 2. Create an invisible image to test the connection
       // We use an image because it bypasses CORS security blocks
