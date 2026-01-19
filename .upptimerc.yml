@@ -1,74 +1,136 @@
-# Change these to match your GitHub details
+# ==========================================
+# SAMSTACK SYSTEMS // MONITOR CONFIGURATION
+# ==========================================
+
 owner: Sam-Builds
 repo: UptimeRepo
+user-agent: "SamStack Sentinel"
 
-user-agent: "AvaServer Monitor"
-
+# --- Monitoring Endpoints ---
 sites:
-  # --- Group: Sites ---
+  # Group 1: Public Sites
   - name: Main Portfolio
     url: https://www.samstack.site
     icon: 💼
-    
-  - name: Project Adithya (Blood Donation)
+  - name: Project Adithya
     url: https://projectadithya.samstack.site
     icon: 🩸
-
-  - name: Bin's Middleman Site (Unfinished)
-    url: https://deals.samstack.site
-    icon: 🚧
-
-  - name: IDT Data Entry
+  - name: Data Entry Portal
     url: https://dataentry.samstack.site
     icon: 📝
-
-  - name: YenApp Purge Account
-    url: https://purgeaccount.samstack.site
-    icon: 🗑️
-
-  - name: Server Center Console
-    url: https://debug.samstack.site
-    icon: 🖥️
-
   - name: Secret Santa
     url: https://secretsanta.samstack.site
     icon: 🎅
-
   - name: Privacy Policy
     url: https://www.samstack.site/privacy
     icon: 🔒
 
-  # --- Group: Endpoints (APIs) ---
-  - name: MAIN API (Test Endpoint)
+  # Group 2: Dev/Debug (Expect Failures)
+  - name: Bin's Middleman (WIP)
+    url: https://deals.samstack.site
+    icon: 🚧
+  - name: YenApp Purge
+    url: https://purgeaccount.samstack.site
+    icon: 🗑️
+  - name: Server Console
+    url: https://debug.samstack.site
+    icon: 🖥️
+
+  # Group 3: APIs
+  - name: Main API Health
     url: https://api.samstack.site/api/test
     icon: ⚙️
-
-  - name: IDT Blood Donation API (Health)
+  - name: Blood Donation API
     url: https://adithyasapi.samstack.site/api/health
     icon: 🏥
 
+# --- Status Page Configuration ---
 status-website:
-  # General Settings
+  # Domain & Identity
   cname: status.samstack.site
-  logoUrl: https://cdn-icons-png.flaticon.com/512/12814/12814566.png
-  name: AvaServer Status
-  introTitle: "**AvaServer** // External Watchdog"
-  introMessage: "External monitoring for SamStack Systems. If this page is down, GitHub is down. Call for help..."
+  name: SamStack Systems
+  
+  # LOGO & FAVICON SETTINGS
+  # I chose a white circuit-brain icon that pops on dark backgrounds
+  logoUrl: https://cdn-icons-png.flaticon.com/512/3463/3463471.png
+  favicon: https://cdn-icons-png.flaticon.com/512/3463/3463471.png
+  
+  # Header Text
+  introTitle: "**SYSTEM STATUS** // EXTERNAL WATCHDOG"
+  introMessage: "Real-time integrity monitoring for SamStack infrastructure. If this page is dead, GitHub is dead."
+  
+  # Navigation (Fixed 'href' bug)
   navbar:
     - title: Status
-      href: /       
-    - title: GitHub
-      href: https://github.com/$OWNER
+      href: /
+    - title: GitHub Source
+      href: https://github.com/$OWNER/$REPO
 
-  # Theme Settings (Cyberpunk-ish)
-  theme: dark
+  # Custom Labels (Make it sound cooler)
+  i18n:
+    activeIncidents: "⚠️ ACTIVE ANOMALIES DETECTED"
+    allSystemsOperational: "✅ ALL SYSTEMS NOMINAL"
+    incidentReport: "INCIDENT LOG"
+    service: "TARGET"
+    status: "INTEGRITY"
+    time: "TIMESTAMP"
+    uptime: "UPTIME RATIO"
 
-# Notification Settings
+  # --- THE VISUAL OVERHAUL (CSS) ---
+  css: |
+    /* 1. Import Hacker Font */
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+    :root {
+      --font-sans: 'JetBrains Mono', monospace;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    /* 2. Void Black Background */
+    body {
+      background-color: #0a0a0a !important;
+      color: #e5e5e5 !important;
+    }
+
+    /* 3. Header Styling */
+    header {
+      background: rgba(0, 0, 0, 0.9) !important;
+      border-bottom: 2px solid #333;
+    }
+    
+    /* 4. Logo Spin Animation (Radar Effect) */
+    .navbar-brand img {
+        filter: invert(1); /* Makes black icons white */
+        animation: spin 15s linear infinite;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+
+    /* 5. Glowing Status Bars */
+    /* Green Bars */
+    .bg-green-500 {
+      background-color: #00ff9d !important;
+      box-shadow: 0 0 12px rgba(0, 255, 157, 0.4);
+    }
+    /* Red Bars (Danger) */
+    .bg-red-500 {
+      background-color: #ff0055 !important;
+      box-shadow: 0 0 15px rgba(255, 0, 85, 0.6);
+      animation: pulse 2s infinite;
+    }
+    
+    /* 6. Graph Colors */
+    .apdex-chart rect[fill="#9ae6b4"] { fill: #00ff9d !important; } /* High uptime */
+    .apdex-chart rect[fill="#feb2b2"] { fill: #ff0055 !important; } /* Downtime */
+
+    /* 7. Footer Cleanup */
+    footer { opacity: 0.2; font-size: 0.8rem; }
+    footer:hover { opacity: 1; transition: opacity 0.3s; }
+
+# --- Backend Settings ---
 notifications:
   - type: discord
     serviceUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
-# Workflow Schedule (Checks every 5 minutes - Minimum for GitHub Actions)
 workflowSchedule:
   graphs: "0 0 * * *"
   responseTime: "0 23 * * *"
