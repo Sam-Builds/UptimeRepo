@@ -126,6 +126,53 @@ status-website:
     footer { opacity: 0.2; font-size: 0.8rem; }
     footer:hover { opacity: 1; transition: opacity 0.3s; }
 
+  customHeadHtml: |
+    <script>
+      // 1. Define your Live Kuma URL
+      const LIVE_SERVER = "https://live.samstack.site";
+
+      // 2. Create an invisible image to test the connection
+      // We use an image because it bypasses CORS security blocks
+      const img = new Image();
+      
+      // 3. Set a timeout (If it takes >3 seconds, assume it's dead)
+      const timeout = setTimeout(() => {
+        console.log("Live server timed out. Staying on Backup.");
+        document.body.classList.add('backup-mode'); // Optional styling
+      }, 3000);
+
+      // 4. If the image loads, Redirect!
+      img.onload = function() {
+        clearTimeout(timeout);
+        console.log("Live server found! Redirecting...");
+        window.location.href = LIVE_SERVER;
+      };
+
+      // 5. If the image fails (404/500/Offline), Stay Here.
+      img.onerror = function() {
+        clearTimeout(timeout);
+        console.log("Live server is down. Staying on Backup.");
+        document.body.classList.add('backup-mode');
+      };
+
+      // 6. Trigger the check (Try to load the Kuma favicon)
+      img.src = LIVE_SERVER + "/icon.svg?" + new Date().getTime();
+    </script>
+    
+    <style>
+      /* Optional: Add a "Backup Mode" banner via CSS */
+      body.backup-mode::before {
+        content: "⚠️ UNABLE TO CONNECT TO LIVE CONSOLE - VIEWING BACKUP DATA";
+        display: block;
+        background: #D97706; /* Orange */
+        color: black;
+        text-align: center;
+        font-weight: bold;
+        padding: 8px;
+        font-family: monospace;
+      }
+    </style>
+
 # --- Backend Settings ---
 notifications:
   - type: discord
