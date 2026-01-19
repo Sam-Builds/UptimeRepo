@@ -47,7 +47,7 @@ sites:
 # --- Status Page Configuration ---
 status-website:
   # Domain & Identity
-  # cname: status.samstack.site
+  cname: status.samstack.site
   name: SamStack Systems
   
   # LOGO & FAVICON SETTINGS
