@@ -49,7 +49,7 @@ sites:
 
 status-website:
   # General Settings
-  cname: status.samstack.site
+  # cname: status.samstack.site
   logoUrl: https://cdn-icons-png.flaticon.com/512/12814/12814566.png
   name: AvaServer Status
   introTitle: "**AvaServer** // External Watchdog"
