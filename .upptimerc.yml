@@ -52,12 +52,12 @@ status-website:
   
   # LOGO & FAVICON SETTINGS
   # I chose a white circuit-brain icon that pops on dark backgrounds
-  logoUrl: https://cdn-icons-png.flaticon.com/512/3463/3463471.png
-  favicon: https://cdn-icons-png.flaticon.com/512/3463/3463471.png
+  logoUrl: https://cdn-icons-png.flaticon.com/512/12814/12814566.png
+  favicon: https://cdn-icons-png.flaticon.com/512/12814/12814566.png
   
   # Header Text
   introTitle: "**SYSTEM STATUS** // EXTERNAL WATCHDOG"
-  introMessage: "Real-time integrity monitoring for SamStack infrastructure. If this page is dead, GitHub is dead."
+  introMessage: "Real-time integrity monitoring for SamStack infrastructure. If this page is dead, GitHub is dead. Call for help..."
   
   # Navigation (Fixed 'href' bug)
   navbar:
