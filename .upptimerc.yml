@@ -133,7 +133,7 @@ status-website:
       const PING_URL = "https://livestatus.samstack.site"; 
       
       // The specific page you want to land on
-      const DESTINATION_URL = "https://livestatus.samstack.site/status/status";
+      const DESTINATION_URL = "https://livestatus.samstack.site/";
 
       // 2. The Logic
       const img = new Image();
