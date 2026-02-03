@@ -1,7 +1,7 @@
 url: https://adithyasapi.samstack.site/api/health
-status: up
-code: 200
-responseTime: 1194
-lastUpdated: 2026-02-03T08:53:25.848Z
+status: down
+code: 502
+responseTime: 969
+lastUpdated: 2026-02-03T09:32:20.914Z
 startTime: 2026-01-19T18:40:50.928Z
 generator: Upptime <https://github.com/upptime/upptime>
