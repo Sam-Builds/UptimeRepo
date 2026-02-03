@@ -1,7 +1,7 @@
 url: https://purgeaccount.samstack.site
-status: up
-code: 200
-responseTime: 970
-lastUpdated: 2026-02-03T08:53:14.686Z
+status: down
+code: 502
+responseTime: 1045
+lastUpdated: 2026-02-03T09:32:10.386Z
 startTime: 2026-01-19T18:40:47.197Z
 generator: Upptime <https://github.com/upptime/upptime>
