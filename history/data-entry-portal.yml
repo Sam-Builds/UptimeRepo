@@ -1,7 +1,7 @@
 url: https://dataentry.samstack.site
-status: up
-code: 200
-responseTime: 842
-lastUpdated: 2026-04-25T23:45:37.364Z
+status: down
+code: 502
+responseTime: 815
+lastUpdated: 2026-04-26T03:50:13.186Z
 startTime: 2026-01-19T18:40:43.300Z
 generator: Upptime <https://github.com/upptime/upptime>
