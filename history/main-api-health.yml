@@ -1,7 +1,7 @@
 url: https://api.samstack.site/api/test
-status: down
-code: 502
-responseTime: 818
-lastUpdated: 2026-05-14T00:08:24.458Z
+status: up
+code: 200
+responseTime: 823
+lastUpdated: 2026-05-14T10:31:42.039Z
 startTime: 2026-01-19T18:40:49.660Z
 generator: Upptime <https://github.com/upptime/upptime>
